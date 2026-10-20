@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ashley · Game Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Ashley, an aspiring game developer: games, motion graphics and video editing, 3D modelling and programming.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=19">
+</head>
+<body>
+  <div class="room" aria-hidden="true"><i class="beam b1"></i><i class="beam b2"></i><i class="beam b3"></i></div>
+
+  <!-- top bar -->
+  <header class="bar">
+    <a href="#" class="bar__brand" id="brand"></a>
+    <dl class="bar__meta">
+      <div><dt>Focus</dt><dd>Technical artist</dd></div>
+      <div><dt>Also</dt><dd>3D · Code · Motion · Edit</dd></div>
+      <div><dt>Status</dt><dd><span class="led"></span> Always making</dd></div>
+    </dl>
+    <nav class="bar__nav">
+      <a href="#home" class="is-active">Home</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="stage" id="home">
+      <p class="stage__kicker mono" id="kicker"></p>
+
+      <!-- THE MONITOR -->
+      <div class="monitor" id="monitor">
+        <div class="monitor__frame">
+          <span class="cam" aria-hidden="true"></span>
+          <div class="glass">
+            <div class="glass__on">
+              <div class="board" aria-hidden="true"><i></i><i></i><i></i></div>
+
+              <div class="bay bay--games">
+                <div class="bay__head">
+                  <h2>Games I work on</h2>
+                  <div class="bay__arrows"><button data-dir="-1" aria-label="Scroll games left">←</button><button data-dir="1" aria-label="Scroll games right">→</button></div>
+                </div>
+                <div class="rail" id="gamesRail" tabindex="0" aria-label="Games"></div>
+              </div>
+
+              <div class="bay bay--fields">
+                <div class="bay__head">
+                  <h2>What I do</h2>
+                  <div class="bay__arrows"><button data-dir="-1" aria-label="Scroll fields left">←</button><button data-dir="1" aria-label="Scroll fields right">→</button></div>
+                </div>
+                <div class="rail" id="fieldsRail" tabindex="0" aria-label="Fields"></div>
+              </div>
+
+              <div class="taskbar">
+                <span class="taskbar__name"><span class="taskbar__logo">✿</span> <span id="shroudName"></span></span>
+                <span class="taskbar__mid">portfolio · <span id="yearText"></span></span>
+                <span class="taskbar__clock" id="clock"></span>
+              </div>
+            </div>
+            <div class="glass__shine" aria-hidden="true"></div>
+          </div>
+          <div class="chin">
+            <span class="chin__brand" id="chinBrand"></span>
+            <span class="chin__led" title="Power"></span>
+          </div>
+        </div>
+        <div class="stand" aria-hidden="true"><div class="stand__neck"></div><div class="stand__base"></div></div>
+      </div>
+      <p class="stage__hint mono">drag or scroll the rows · click to open</p>
+    </section>
+
+    <!-- summary -->
+    <section class="summary" id="summary">
+      <div class="summary__inner">
+        <p class="mono label">Summary</p>
+        <h2 class="summary__head reveal" id="sumHead"></h2>
+        <p class="summary__intro reveal" id="sumIntro"></p>
+        <div class="stats" id="sumStats"></div>
+      </div>
+      <div class="marquee reveal" aria-label="A strip of my work"><div class="marquee__track" id="sumMarquee"></div></div>
+      <div class="summary__inner">
+        <h3 class="summary__sub reveal">Highlights</h3>
+        <div class="highlights" id="sumHighlights"></div>
+        <h3 class="summary__sub reveal">Toolbox</h3>
+        <div class="toolbox reveal" id="sumTools"></div>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section class="info" id="about">
+      <p class="mono label">About</p>
+      <p class="info__lead" id="aboutIntro"></p>
+      <div class="info__cols">
+        <div>
+          <p class="mono label">currently</p>
+          <dl class="currently" id="currently"></dl>
+        </div>
+        <div>
+          <p class="mono label">a few things</p>
+          <ul class="facts" id="facts"></ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot mono"><span>© <span id="yearText2"></span> <span id="footAlias"></span></span><a href="#home">back to top ↑</a></footer>
+  </main>
+
+  <!-- full-screen detail "monitor" -->
+  <div class="screen" id="screen" hidden>
+    <div class="screen__inner" role="dialog" aria-modal="true" aria-labelledby="screenTitle">
+      <header class="screen__bar mono">
+        <button class="screen__back" id="screenBack">← back</button>
+        <span id="screenPath"></span>
+        <span class="screen__nav">
+          <button id="screenPrev" aria-label="Previous">‹ prev</button>
+          <button id="screenNext" aria-label="Next">next ›</button>
+        </span>
+      </header>
+      <div class="screen__scroll" id="screenScroll">
+        <div class="screen__top" id="screenTop">
+          <div class="screen__hero">
+            <span class="mono screen__num" id="screenNum"></span>
+            <h1 class="screen__title" id="screenTitle"></h1>
+            <p class="screen__blurb" id="screenBlurb"></p>
+            <div id="screenCta"></div>
+            <div class="chips" id="screenChips"></div>
+          </div>
+          <figure class="screen__cover" id="screenCover"></figure>
+        </div>
+        <dl class="screen__facts" id="screenFacts"></dl>
+        <h2 class="screen__h" id="screenGridHead"></h2>
+        <div class="screen__grid" id="screenGrid"></div>
+        <div class="screen__after" id="screenAfter"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/content.js?v=19"></script>
+  <script src="js/main.js?v=19"></script>
+</body>
+</html>
